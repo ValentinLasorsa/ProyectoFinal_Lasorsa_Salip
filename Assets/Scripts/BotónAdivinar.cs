@@ -8,6 +8,7 @@ public class BotónAdivinar : MonoBehaviour
     {
         ComponenteCard componenteCard = objetoPulsado.GetComponent<ComponenteCard>();
 
+
         if (componenteCard != null && componenteCard.ID == objetoObjetivoID)
         {
             MostrarMensajeGanador(); // Muestra un mensaje de victoria si el ID coincide
@@ -30,5 +31,7 @@ public class BotónAdivinar : MonoBehaviour
         // Aquí puedes implementar la lógica para mostrar un mensaje de error en la mainscreen
         Debug.Log("¡Has perdido!");
         // Por ejemplo, puedes mostrar un mensaje similar al de ganador pero indicando la pérdida
+        
     }
+    
 }

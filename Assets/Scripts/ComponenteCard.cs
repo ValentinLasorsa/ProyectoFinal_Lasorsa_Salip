@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ComponenteCard : MonoBehaviour
 {
+    
     // Método para seleccionar o deseleccionar la tarjeta
     public void Seleccionar()
     {
