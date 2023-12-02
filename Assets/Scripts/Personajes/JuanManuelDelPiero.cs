@@ -16,7 +16,7 @@ public class JuanManuelDelPiero : MonoBehaviour
         id = 2;
         Nombre = "Juan Manuel Del Piero";
         accesorios = false;
-         ojos = 1;
+        ojos = 1;
         pelo = 0;
         genero = false;
     }

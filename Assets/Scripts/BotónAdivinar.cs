@@ -4,47 +4,35 @@ using UnityEngine;
 
 public class BotónAdivinar : MonoBehaviour
 {
-    private GameObject objetoSeleccionado;
-
-    public void OnButtonClicked()
+    public void OnButtonClickedButton()
     {
-        // Raycast desde la posición del ratón en la pantalla
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        // Esto obtiene el GameObject al que está adjunto este script (en este caso, el botón)
+        GameObject objetoPulsado = gameObject; 
+        // Llamar al método que necesita el parámetro GameObject
+        OnButtonClicked(objetoPulsado);
+    }
 
-        if (Physics.Raycast(ray, out hit))
+    public void OnButtonClicked(GameObject objetoPulsado)
+    {
+        Debug.Log("Estoy en botonAdivinar");
+        PJ personaje = objetoPulsado.GetComponent<PJ>();
+        if (personaje != null && personaje.id == 1)
         {
-            // Verifica si el objeto golpeado tiene el componente PJ
-            PJ personaje = hit.collider.GetComponent<PJ>();
-
-            if (personaje != null)
-            {
-                objetoSeleccionado = hit.collider.gameObject;
-
-                int numeroAleatorio = Random.Range(0, 11);
-                Debug.Log(numeroAleatorio);
-
-                if (personaje.id == numeroAleatorio)
-                {
-                    MostrarMensajeGanador(); // Muestra un mensaje de victoria si el ID coincide
-                }
-                else
-                {
-                    MostrarMensajePerdedor(); // Muestra un mensaje de error si el ID no coincide
-                }
-            }
+            MostrarMensajeGanador(); // Muestra un mensaje de victoria si el ID coincide
+        }
+        else
+        {
+            MostrarMensajePerdedor(); // Muestra un mensaje de derrota si el ID no coincide
         }
     }
 
     void MostrarMensajeGanador()
     {
         Debug.Log("¡Has ganado!");
-        // Implementa la lógica para mostrar un mensaje de victoria en la pantalla principal
     }
 
     void MostrarMensajePerdedor()
     {
         Debug.Log("¡Has perdido!");
-        // Implementa la lógica para mostrar un mensaje de error en la pantalla principal
     }
 }
