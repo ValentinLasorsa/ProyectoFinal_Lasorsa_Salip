@@ -7,7 +7,7 @@ public class BotónAdivinar : MonoBehaviour
     public void OnButtonClicked(GameObject objetoPulsado)
     {
         ComponenteCard componenteCard = objetoPulsado.GetComponent<ComponenteCard>();
-
+/*
 
         if (componenteCard != null && componenteCard.ID == objetoObjetivoID)
         {
@@ -34,4 +34,6 @@ public class BotónAdivinar : MonoBehaviour
         
     }
     
+}*/
+    }
 }
