@@ -18,7 +18,7 @@ public class TamaraLaprida : MonoBehaviour
     accesorios = false;
     ojos = 0;
     pelo = 1;
-    genero = false;
+    genero = true;
 }
 
 }

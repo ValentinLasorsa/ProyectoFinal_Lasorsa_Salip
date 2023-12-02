@@ -12,15 +12,4 @@ public class PJ : MonoBehaviour
     public int Pelo;
     public bool Genero;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

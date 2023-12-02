@@ -18,7 +18,7 @@ public class RominaSalgado : MonoBehaviour
     accesorios = true;
     ojos = 3;
     pelo = 1;
-    genero = false;
+    genero = true;
 }
 
 }

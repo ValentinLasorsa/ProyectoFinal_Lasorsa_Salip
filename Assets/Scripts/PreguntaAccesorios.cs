@@ -21,6 +21,7 @@ public class PreguntasOjos : MonoBehaviour
     public PJ RominaSalgado;
     public PJ RomualdoTrass;
     public PJ TamaraLaprida;
+    
     void Start()
     {
       BlasZanetti = GameObject.Find("BlasZanetti").GetComponent<PJ>();

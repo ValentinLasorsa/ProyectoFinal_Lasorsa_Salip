@@ -18,7 +18,7 @@ public class RocioRodriguez : MonoBehaviour
     accesorios = false;
     ojos = 1;
     pelo = 1;
-    genero = false;
+    genero = true;
 }
 
 }
