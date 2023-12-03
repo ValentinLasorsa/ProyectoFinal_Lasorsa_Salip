@@ -1,22 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BotónAdivinar : MonoBehaviour
 {
-    public void OnButtonClickedButton()
+    bool esperandoSeleccion = false;
+    int idEsperado = 1; // ID que se espera para mostrar el mensaje de ganador
+
+    void Update()
     {
-        // Esto obtiene el GameObject al que está adjunto este script (en este caso, el botón)
-        GameObject objetoPulsado = gameObject; 
-        // Llamar al método que necesita el parámetro GameObject
-        OnButtonClicked(objetoPulsado);
+        if (esperandoSeleccion && Input.GetMouseButtonDown(0)) // Si se está esperando la selección y se hace clic
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject objetoPulsado = hit.collider.gameObject;
+                TocarObjetoPJ(objetoPulsado);
+            }
+        }
     }
 
-    public void OnButtonClicked(GameObject objetoPulsado)
+    public void ActivarSeleccion()
     {
-        Debug.Log("Estoy en botonAdivinar");
+        esperandoSeleccion = true;
+    }
+
+    void TocarObjetoPJ(GameObject objetoPulsado)
+    {
+        Debug.Log("ESTOY EN TOCAROBJETOPJ");
+        esperandoSeleccion = false;
+
         PJ personaje = objetoPulsado.GetComponent<PJ>();
-        if (personaje != null && personaje.id == 1)
+        if (personaje != null && personaje.id == idEsperado)
         {
             MostrarMensajeGanador(); // Muestra un mensaje de victoria si el ID coincide
         }
@@ -29,10 +47,12 @@ public class BotónAdivinar : MonoBehaviour
     void MostrarMensajeGanador()
     {
         Debug.Log("¡Has ganado!");
+        // Implementa aquí la lógica para mostrar un mensaje de victoria en la pantalla principal
     }
 
     void MostrarMensajePerdedor()
     {
         Debug.Log("¡Has perdido!");
+        // Implementa aquí la lógica para mostrar un mensaje de derrota en la pantalla principal
     }
 }
