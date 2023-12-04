@@ -1,12 +1,34 @@
-/*using UnityEngine;
+using UnityEngine;
 
 public class IdPJGanador : MonoBehaviour
 {
-    public void GenerarPJGanador();
+    public int numeroGanador; // Declaración de la variable que almacenará el número ganador
+
+    void Start()
     {
-        public int numeroAleatorio = Random.Range(0, 11);
-        Debug.Log("Número aleatorio entre 1 y 12: "+numeroAleatorio);
+        GenerarPJGanador(); // Llama a la función GenerarPJGanador() cuando el juego comienza
     }
-    
+
+    void GenerarPJGanador()
+    {
+        numeroGanador = Random.Range(1, 13); // Genera un número aleatorio entre 1 y 100 (inclusive)
+        Debug.Log("El número ganador es: " + numeroGanador); // Imprime el número ganador en la consola
+
+        // Encuentra todos los objetos de tipo PJ en la escena
+        PJ[] objetosPJ = FindObjectsOfType<PJ>();
+
+        // Recorre la lista de objetos PJ y compara el valor de la variable id con el valor de la variable numeroGanador
+        foreach (PJ pj in objetosPJ)
+        {
+            if (pj.id == numeroGanador)
+            {
+                Debug.Log("ID del PJ: "+pj.id);
+                Debug.Log("Nombre del PJ: "+pj.Nombre);
+                Debug.Log("Accesorios del PJ: "+pj.Accesorios);
+                Debug.Log("Ojos del PJ: "+pj.Ojos);
+                Debug.Log("Pelo del PJ: "+pj.Pelo);
+                Debug.Log("Genero del PJ: "+pj.Genero);
+            }
+        }
+    }
 }
-*/

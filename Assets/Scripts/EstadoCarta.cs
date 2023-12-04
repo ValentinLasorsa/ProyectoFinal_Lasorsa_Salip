@@ -6,6 +6,7 @@ public class EstadoCarta : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log("EstadoCarta");
         // Cuando el jugador toque el objeto original
         if (objetoReemplazo != null)
         {

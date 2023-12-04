@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CartaTocada : MonoBehaviour
 {
-    public void onMouseDown()
+    public PJ pj; // Creates a public reference to a PJ object.
+
+    void OnMouseDown()
     {
-        Debug.Log("Carta Tocada");
+        if (pj != null)
+        {
+            Debug.Log(pj.id);
+        }
     }
 }

@@ -27,6 +27,10 @@ public class BotónAdivinar : MonoBehaviour
     {
         esperandoSeleccion = true;
     }
+public void Hola()
+    {
+        Debug.Log("Estoy en botonadivinar");
+    }
 
     void TocarObjetoPJ(GameObject objetoPulsado)
     {
