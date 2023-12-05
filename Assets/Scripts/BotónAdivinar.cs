@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class BotónAdivinar : MonoBehaviour
 {
-    IdPJGanador idPJGanador;   
+    public IdPJGanador idPJGanador;
     public bool esperandoSeleccion = false;
 
     public void ActivarSeleccion()
@@ -13,16 +13,14 @@ public class BotónAdivinar : MonoBehaviour
         esperandoSeleccion = true;
     }
 
-    public void TocarObjetoPJ(GameObject objetoPulsado)
+    public void TocarObjetoPJ(int IDPulsado, int numeroGanador)
     {
         esperandoSeleccion = false;
         Debug.Log("ESTOY EN TOCAROBJETOPJ");
-        PJ pjScript = objetoPulsado.GetComponent<PJ>();
-       if (pjScript != null)
+       if (IDPulsado != 0)
     {
-        Debug.Log(pjScript.id);
-
-        if (pjScript.id == idPJGanador.numeroGanador)
+        Debug.Log(IDPulsado);
+        if (IDPulsado == numeroGanador)
         {
             MostrarMensajeGanador(); // Muestra un mensaje de victoria si el ID coincide
         }

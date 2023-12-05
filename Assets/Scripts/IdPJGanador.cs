@@ -6,10 +6,10 @@ public class IdPJGanador : MonoBehaviour
 
     void Start()
     {
-        GenerarPJGanador(); // Llama a la función GenerarPJGanador() cuando el juego comienza
+        GenerarIDGanador(); // Llama a la función GenerarIDGanador() cuando el juego comienza
     }
 
-    void GenerarPJGanador()
+    int GenerarIDGanador()
     {
         numeroGanador = Random.Range(1, 13); // Genera un número aleatorio entre 1 y 100 (inclusive)
         // Encuentra todos los objetos de tipo PJ en la escena
@@ -27,5 +27,6 @@ public class IdPJGanador : MonoBehaviour
                 Debug.Log("Genero del PJ: "+pj.Genero);
             }
         }
+        return numeroGanador;
     }
 }
