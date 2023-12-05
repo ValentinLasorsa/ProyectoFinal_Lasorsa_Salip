@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 public class ClickCard : MonoBehaviour, IPointerClickHandler
 {
     public BotónAdivinar botónAdivinar;
-    public IdPJGanador idPJGanador;
  
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -12,7 +11,7 @@ public class ClickCard : MonoBehaviour, IPointerClickHandler
         {
         // Imprime el nombre del objeto al que se hizo clic en la consola
         Debug.Log("Hiciste clic en: " + gameObject.name);
-        botónAdivinar.TocarObjetoPJ(gameObject,idPJGanador.numeroGanador);
+        botónAdivinar.TocarObjetoPJ(gameObject);
         // Aquí puedes agregar el código que se ejecutará cuando se haga clic en el objeto
         }
         else{
