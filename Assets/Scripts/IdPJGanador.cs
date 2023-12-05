@@ -12,8 +12,6 @@ public class IdPJGanador : MonoBehaviour
     void GenerarPJGanador()
     {
         numeroGanador = Random.Range(1, 13); // Genera un número aleatorio entre 1 y 100 (inclusive)
-        Debug.Log("El número ganador es: " + numeroGanador); // Imprime el número ganador en la consola
-
         // Encuentra todos los objetos de tipo PJ en la escena
         PJ[] objetosPJ = FindObjectsOfType<PJ>();
 

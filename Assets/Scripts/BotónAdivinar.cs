@@ -5,40 +5,22 @@ using UnityEngine.EventSystems;
 
 public class BotónAdivinar : MonoBehaviour
 {
-    bool esperandoSeleccion = false;
-    int idEsperado = 1; // ID que se espera para mostrar el mensaje de ganador
-
-    void Update()
-    {
-        if (esperandoSeleccion && Input.GetMouseButtonDown(0)) // Si se está esperando la selección y se hace clic
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                GameObject objetoPulsado = hit.collider.gameObject;
-                TocarObjetoPJ(objetoPulsado);
-            }
-        }
-    }
+    public IdPJGanador idpjganador;
+    public bool esperandoSeleccion = false;
 
     public void ActivarSeleccion()
     {
         esperandoSeleccion = true;
     }
-public void Hola()
-    {
-        Debug.Log("Estoy en botonadivinar");
-    }
 
-    void TocarObjetoPJ(GameObject objetoPulsado)
+    public void TocarObjetoPJ(GameObject objetoPulsado, int numeroGanador)
     {
+
         Debug.Log("ESTOY EN TOCAROBJETOPJ");
+        Debug.Log(numeroGanador);
         esperandoSeleccion = false;
-
-        PJ personaje = objetoPulsado.GetComponent<PJ>();
-        if (personaje != null && personaje.id == idEsperado)
+        PJ pj = objetoPulsado.GetComponent<PJ>();
+        if (pj != null && pj.id == numeroGanador)
         {
             MostrarMensajeGanador(); // Muestra un mensaje de victoria si el ID coincide
         }
@@ -48,6 +30,7 @@ public void Hola()
         }
     }
 
+   
     void MostrarMensajeGanador()
     {
         Debug.Log("¡Has ganado!");
