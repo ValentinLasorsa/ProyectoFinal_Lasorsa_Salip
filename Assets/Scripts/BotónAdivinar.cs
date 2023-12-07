@@ -9,8 +9,22 @@ public class BotónAdivinar : MonoBehaviour
 {
     public IdPJGanador idPJGanador;
     public bool esperandoSeleccion = false;
-    public MostrarMensajes mostrarMensajes;
-
+    public GameObject canvaGanador;
+    public GameObject canvaPerdedor;
+    
+    void Start()
+    {
+        if (canvaGanador != null)
+        {
+            canvaGanador.SetActive(false);
+            canvaPerdedor.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("El canvas no está asignado en el Inspector.");
+        }
+    }
+    
     public void ActivarSeleccion()
     {
         esperandoSeleccion = true;
@@ -19,17 +33,17 @@ public class BotónAdivinar : MonoBehaviour
     public void TocarObjetoPJ(int IDPulsado, int numeroGanador)
     {
         esperandoSeleccion = false;
-        Debug.Log("ESTOY EN TOCAROBJETOPJ");
        if (IDPulsado != 0)
     {
-        Debug.Log(IDPulsado);
         if (IDPulsado == numeroGanador)
         {
-            mostrarMensajes.MostrarMensajeGanador(); // Muestra un mensaje de victoria si el ID coincide
+            canvaGanador.SetActive(true); // Muestra un mensaje de victoria si el ID coincide
+            canvaPerdedor.SetActive(false);
         }
         else
         {
-            mostrarMensajes.MostrarMensajePerdedor(); // Muestra un mensaje de derrota si el ID no coincide
+            canvaPerdedor.SetActive(true); // Muestra un mensaje de derrota si el ID no coincide
+            canvaGanador.SetActive(false);
         }
     }
     else

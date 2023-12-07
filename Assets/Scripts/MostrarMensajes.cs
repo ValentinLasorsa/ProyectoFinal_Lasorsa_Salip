@@ -3,16 +3,11 @@ using UnityEngine.UI;
 
 public class MostrarMensajes : MonoBehaviour
 {
-    public GameObject MensajeGanador;
-    public GameObject MensajePerdedor;
+    public GameObject miCanvas;
 
-    public void MostrarMensajeGanador()
+    // Función para activar la visibilidad del Canvas
+    public void ActivarCanvas()
     {
-        Debug.Log("WIN");
-    }
-
-    public void MostrarMensajePerdedor()
-    {
-     Debug.Log("LOST");
+        miCanvas.SetActive(true); // Esto activará la visibilidad del Canvas
     }
 }
