@@ -11,7 +11,7 @@ public class RestartGame : MonoBehaviour
         Debug.Log("Reiniciando...");
         // Carga la escena actual utilizando su índice en el Build Settings
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(escenaActual);
         canva.SetActive(false);
     }
 }
