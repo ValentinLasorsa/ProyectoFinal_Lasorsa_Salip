@@ -9,12 +9,10 @@ public class MostrarMensajes : MonoBehaviour
     public void MostrarMensajeGanador()
     {
         Debug.Log("WIN");
-        MensajeGanador.SetActive(true);
     }
 
     public void MostrarMensajePerdedor()
     {
      Debug.Log("LOST");
-     MensajePerdedor.SetActive(true);
     }
 }
