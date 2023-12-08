@@ -15,7 +15,6 @@ public class PreguntasPelo : MonoBehaviour
         {
             boton.onClick.AddListener(() =>
             {
-                Debug.Log("Botón clickeado");
                 PreguntaPelo();
             });
         }
@@ -40,7 +39,6 @@ public class PreguntasPelo : MonoBehaviour
         {
             if (pj.Pelo != PELO) // Si el ganador tiene pelo rubio, eliminar los que no lo tengan
             {   
-                Debug.Log("INTENTANDO DESTRUIR "+pj.gameObject);
                 Destroy(pj.gameObject);
             }
         }
@@ -48,7 +46,6 @@ public class PreguntasPelo : MonoBehaviour
         {
             if (pj.Pelo == PELO) // Si el ganador no tiene pelo rubio, eliminar los que sí lo tengan
             {
-                Debug.Log("INTENTANDO DESTRUIR "+pj.gameObject);
                 Destroy(pj.gameObject);
             }
         }

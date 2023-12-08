@@ -14,7 +14,6 @@ public class PreguntaAccesorios : MonoBehaviour
         {
             boton.onClick.AddListener(() =>
             {
-                Debug.Log("Botón clickeado");
                 preguntaAccesorios();
             });
         }
@@ -38,8 +37,7 @@ public class PreguntaAccesorios : MonoBehaviour
         if (ganadorTieneAccesorios)
         {
             if (pj.Accesorios != true) // Si el ganador tiene pelo rubio, eliminar los que no lo tengan
-            {   
-                Debug.Log("INTENTANDO DESTRUIR "+pj.gameObject);
+            {  
                 Destroy(pj.gameObject);
             }
         }
@@ -47,7 +45,6 @@ public class PreguntaAccesorios : MonoBehaviour
         {
             if (pj.Accesorios == true) // Si el ganador no tiene pelo rubio, eliminar los que sí lo tengan
             {
-                Debug.Log("INTENTANDO DESTRUIR "+pj.gameObject);
                 Destroy(pj.gameObject);
             }
         }
