@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PreguntasPelo : MonoBehaviour
+public class PreguntaOjos : MonoBehaviour
 {
     public IdPJGanador idPJGanador;
-    public int PELO;
+    public int OJOS;
     void Start()
     {   
         Button boton = GetComponent<Button>();
@@ -16,12 +16,12 @@ public class PreguntasPelo : MonoBehaviour
             boton.onClick.AddListener(() =>
             {
                 Debug.Log("Botón clickeado");
-                PreguntaPelo();
+                preguntaOjos();
             });
         }
     }
 
- public void PreguntaPelo()
+ public void preguntaOjos()
     {
         bool ganador = false;
         PJ[] objetosPJ = FindObjectsOfType<PJ>();
@@ -29,7 +29,7 @@ public class PreguntasPelo : MonoBehaviour
     {
         if (pj.id == idPJGanador.numeroGanador)
         {
-            ganador = (pj.Pelo == PELO); // Verificar si el ganador tiene pelo rubio
+            ganador = (pj.Ojos == OJOS); // Verificar si el ganador tiene pelo rubio
             break; // Salir del bucle después de encontrar al ganador
         }
     }
@@ -38,7 +38,7 @@ public class PreguntasPelo : MonoBehaviour
     {
         if (ganador)
         {
-            if (pj.Pelo != PELO) // Si el ganador tiene pelo rubio, eliminar los que no lo tengan
+            if (pj.Ojos != OJOS) // Si el ganador tiene pelo rubio, eliminar los que no lo tengan
             {   
                 Debug.Log("INTENTANDO DESTRUIR "+pj.gameObject);
                 Destroy(pj.gameObject);
@@ -46,7 +46,7 @@ public class PreguntasPelo : MonoBehaviour
         }
         else
         {
-            if (pj.Pelo == PELO) // Si el ganador no tiene pelo rubio, eliminar los que sí lo tengan
+            if (pj.Ojos == OJOS) // Si el ganador no tiene pelo rubio, eliminar los que sí lo tengan
             {
                 Debug.Log("INTENTANDO DESTRUIR "+pj.gameObject);
                 Destroy(pj.gameObject);

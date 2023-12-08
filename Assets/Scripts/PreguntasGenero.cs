@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.UI;  
 
-public class PreguntasPelo : MonoBehaviour
+public class PreguntasGenero : MonoBehaviour
 {
     public IdPJGanador idPJGanador;
-    public int PELO;
+    public bool GENERO;
     void Start()
     {   
         Button boton = GetComponent<Button>();
@@ -16,12 +15,12 @@ public class PreguntasPelo : MonoBehaviour
             boton.onClick.AddListener(() =>
             {
                 Debug.Log("Botón clickeado");
-                PreguntaPelo();
+                preguntaGenero();
             });
         }
     }
 
- public void PreguntaPelo()
+ public void preguntaGenero()
     {
         bool ganador = false;
         PJ[] objetosPJ = FindObjectsOfType<PJ>();
@@ -29,7 +28,7 @@ public class PreguntasPelo : MonoBehaviour
     {
         if (pj.id == idPJGanador.numeroGanador)
         {
-            ganador = (pj.Pelo == PELO); // Verificar si el ganador tiene pelo rubio
+            ganador = (pj.Genero == GENERO); // Verificar si el ganador tiene pelo rubio
             break; // Salir del bucle después de encontrar al ganador
         }
     }
@@ -38,7 +37,7 @@ public class PreguntasPelo : MonoBehaviour
     {
         if (ganador)
         {
-            if (pj.Pelo != PELO) // Si el ganador tiene pelo rubio, eliminar los que no lo tengan
+            if (pj.Genero != GENERO) // Si el ganador tiene pelo rubio, eliminar los que no lo tengan
             {   
                 Debug.Log("INTENTANDO DESTRUIR "+pj.gameObject);
                 Destroy(pj.gameObject);
@@ -46,7 +45,7 @@ public class PreguntasPelo : MonoBehaviour
         }
         else
         {
-            if (pj.Pelo == PELO) // Si el ganador no tiene pelo rubio, eliminar los que sí lo tengan
+            if (pj.Genero == GENERO) // Si el ganador no tiene pelo rubio, eliminar los que sí lo tengan
             {
                 Debug.Log("INTENTANDO DESTRUIR "+pj.gameObject);
                 Destroy(pj.gameObject);

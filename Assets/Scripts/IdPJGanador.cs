@@ -11,7 +11,7 @@ public class IdPJGanador : MonoBehaviour
 
     int GenerarIDGanador()
     {
-        numeroGanador = Random.Range(1, 13); // Genera un número aleatorio entre 1 y 100 (inclusive)
+        numeroGanador = Random.Range(1, 13); // Genera un número aleatorio entre 1 y 12 (inclusive)
         // Encuentra todos los objetos de tipo PJ en la escena
         PJ[] objetosPJ = FindObjectsOfType<PJ>();
         // Recorre la lista de objetos PJ y compara el valor de la variable id con el valor de la variable numeroGanador
