@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;   
+using UnityEngine.UI;  
 
-public class PreguntaOjosMarrones : MonoBehaviour
+public class PreguntasHombre : MonoBehaviour
 {
+    public int id;
+    public string Nombre;
+    public bool Accesorios;
     public int Ojos;
-
-    int ojosElegidos = 0;
-    //cambiar por ojos del elegido
-    int pmarrones = 2;
+    public int Pelo;
+    public bool Genero;
     
-
     public BlasZanetti BlasZanetti;
     public ErnestoMuller ErnestoMuller;
     public JuanManuelDelPiero JuanManuelDelPiero;
@@ -25,10 +24,12 @@ public class PreguntaOjosMarrones : MonoBehaviour
     public RominaSalgado RominaSalgado;
     public RomualdoTrass RomualdoTrass;
     public TamaraLaprida TamaraLaprida;
+    
     void Start()
     {
-        Ojos = ojosElegidos;
-        BlasZanetti = GameObject.Find("Blas Zanetti").GetComponent<BlasZanetti>();
+    Genero = false;
+    //modificar despues
+    BlasZanetti = GameObject.Find("Blas Zanetti").GetComponent<BlasZanetti>();
         ErnestoMuller = GameObject.Find("Ernesto Muller").GetComponent<ErnestoMuller>();
         JuanManuelDelPiero = GameObject.Find("Juan Manuel Del Piero").GetComponent<JuanManuelDelPiero>();
         
@@ -41,44 +42,42 @@ public class PreguntaOjosMarrones : MonoBehaviour
         RomualdoTrass = GameObject.Find("Romualdo Trass").GetComponent<RomualdoTrass>();
         TamaraLaprida = GameObject.Find("Tamara Laprida").GetComponent<TamaraLaprida>();
 
-        Button boton = GetComponent<Button>();
+    Button boton = GetComponent<Button>();
         if (boton != null)
         {
             boton.onClick.AddListener(() =>
             {
                 Debug.Log("Botón clickeado");
-                PreguntasOjosMarrones();
+                PreguntaGeneroHombre();
             });
         }
 
     }
-    
-    public void PreguntasOjosMarrones()
-    {
-           if (Ojos != pmarrones)
-        {   
-            DestroyIfNotNull(JuanManuelDelPiero);
-            DestroyIfNotNull(LauraRochet);
-   
-        }
-        else
-        {
-            DestroyIfNotNull(TamaraLaprida);
 
-            DestroyIfNotNull(RocioRodriguez);
+     public void PreguntaGeneroHombre()
+    {
+        if (Genero != false)
+        {
             DestroyIfNotNull(BlasZanetti);
-            DestroyIfNotNull(NataliaFernandez);
-            DestroyIfNotNull(RobertoBanzas);
-            DestroyIfNotNull(RominaSalgado);
-            DestroyIfNotNull(MiguelAngelRomero);
-            DestroyIfNotNull(RomualdoTrass);
             DestroyIfNotNull(ErnestoMuller);
-    
+            DestroyIfNotNull(RobertoBanzas);
+            DestroyIfNotNull(RomualdoTrass);
+            DestroyIfNotNull(JuanManuelDelPiero);
+            DestroyIfNotNull(MiguelAngelRomero);
         }
+            else
+        {
+            DestroyIfNotNull(RocioRodriguez);
+            DestroyIfNotNull(TamaraLaprida);
+            DestroyIfNotNull(LauraRochet);
+            DestroyIfNotNull(RominaSalgado);
+            DestroyIfNotNull(NataliaFernandez);
+
+        }
+
     }
 
-
-     private void DestroyIfNotNull(MonoBehaviour obj)
+      private void DestroyIfNotNull(MonoBehaviour obj)
     {
         if (obj != null)
         {

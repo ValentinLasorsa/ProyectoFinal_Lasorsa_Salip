@@ -4,14 +4,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;   
 
-public class PreguntaOjosMarrones : MonoBehaviour
+public class PreguntaOjosAzules : MonoBehaviour
 {
     public int Ojos;
 
     int ojosElegidos = 0;
     //cambiar por ojos del elegido
-    int pmarrones = 2;
-    
+    int pazules = 0;
 
     public BlasZanetti BlasZanetti;
     public ErnestoMuller ErnestoMuller;
@@ -47,36 +46,38 @@ public class PreguntaOjosMarrones : MonoBehaviour
             boton.onClick.AddListener(() =>
             {
                 Debug.Log("Botón clickeado");
-                PreguntasOjosMarrones();
+                PreguntasOjosAzules();
             });
         }
 
     }
-    
-    public void PreguntasOjosMarrones()
-    {
-           if (Ojos != pmarrones)
-        {   
-            DestroyIfNotNull(JuanManuelDelPiero);
-            DestroyIfNotNull(LauraRochet);
-   
-        }
-        else
-        {
-            DestroyIfNotNull(TamaraLaprida);
 
-            DestroyIfNotNull(RocioRodriguez);
+    
+
+    public void PreguntasOjosAzules()
+    {
+            if (Ojos != pazules)
+        {
             DestroyIfNotNull(BlasZanetti);
             DestroyIfNotNull(NataliaFernandez);
             DestroyIfNotNull(RobertoBanzas);
             DestroyIfNotNull(RominaSalgado);
-            DestroyIfNotNull(MiguelAngelRomero);
-            DestroyIfNotNull(RomualdoTrass);
-            DestroyIfNotNull(ErnestoMuller);
     
         }
-    }
+        else
+        {
+   
+            DestroyIfNotNull(JuanManuelDelPiero);
+           
+            DestroyIfNotNull(LauraRochet);
+            DestroyIfNotNull(MiguelAngelRomero);
+            DestroyIfNotNull(RocioRodriguez);
+            DestroyIfNotNull(RomualdoTrass);
+            DestroyIfNotNull(TamaraLaprida);
+            DestroyIfNotNull(ErnestoMuller);
 
+        }
+    }
 
      private void DestroyIfNotNull(MonoBehaviour obj)
     {

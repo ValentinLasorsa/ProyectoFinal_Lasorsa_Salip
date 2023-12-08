@@ -1,70 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;   
 
-public class PreguntasOjosNegros : MonoBehaviour
+public class PreguntaOjosNegros : MonoBehaviour
 {
-    public string Pregunta1 { get; set; }
-    public string Pregunta2 { get; set; }
-    public string Pregunta3 { get; set; }
-    public string Pregunta4 { get; set; }
-    public bool Condicion;
-    public PJ BlasZanetti;
-    public PJ ErnestoMuller;
-    public PJ JuanManuelDelPiero;
-    public PJ JuanPabloBenavidez;
-    public PJ LauraRochet;
-    public PJ MiguelAngelRomero;
-    public PJ NataliaFernandez;
-    public PJ RobertoBanzas;
-    public PJ RocioRodriguez;
-    public PJ RominaSalgado;
-    public PJ RomualdoTrass;
-    public PJ TamaraLaprida;
-    
+    public int Ojos;
+
+    int ojosElegidos = 0;
+    //cambiar por ojos del elegido
+    int pnegros = 3;
+
+    public BlasZanetti BlasZanetti;
+    public ErnestoMuller ErnestoMuller;
+    public JuanManuelDelPiero JuanManuelDelPiero;
+ 
+    public LauraRochet LauraRochet;
+    public MiguelAngelRomero MiguelAngelRomero;
+    public NataliaFernandez NataliaFernandez;
+    public RobertoBanzas RobertoBanzas;
+    public RocioRodriguez RocioRodriguez;
+    public RominaSalgado RominaSalgado;
+    public RomualdoTrass RomualdoTrass;
+    public TamaraLaprida TamaraLaprida;
     void Start()
     {
-      BlasZanetti = GameObject.Find("BlasZanetti").GetComponent<PJ>();
-    ErnestoMuller = GameObject.Find("ErnestoMuller").GetComponent<PJ>();
-    JuanManuelDelPiero = GameObject.Find("JuanManuelDelPiero").GetComponent<PJ>();
-    JuanPabloBenavidez = GameObject.Find("JuanPabloBenavidez").GetComponent<PJ>();
-    LauraRochet = GameObject.Find("LauraRochet").GetComponent<PJ>();
-    MiguelAngelRomero = GameObject.Find("MiguelAngelRomero").GetComponent<PJ>();
-    NataliaFernandez = GameObject.Find("NataliaFernandez").GetComponent<PJ>();
-    RobertoBanzas = GameObject.Find("RobertoBanzas").GetComponent<PJ>();
-    RocioRodriguez = GameObject.Find("RocioRodriguez").GetComponent<PJ>();
-    RominaSalgado = GameObject.Find("RominaSalgado").GetComponent<PJ>();
-    RomualdoTrass = GameObject.Find("RomualdoTrass").GetComponent<PJ>();
-    TamaraLaprida = GameObject.Find("TamaraLaprida").GetComponent<PJ>();
+        Ojos = ojosElegidos;
+        BlasZanetti = GameObject.Find("Blas Zanetti").GetComponent<BlasZanetti>();
+        ErnestoMuller = GameObject.Find("Ernesto Muller").GetComponent<ErnestoMuller>();
+        JuanManuelDelPiero = GameObject.Find("Juan Manuel Del Piero").GetComponent<JuanManuelDelPiero>();
+        
+        LauraRochet = GameObject.Find("Laura Rochet").GetComponent<LauraRochet>();
+        MiguelAngelRomero = GameObject.Find("Miguel Angel Romero").GetComponent<MiguelAngelRomero>();
+        NataliaFernandez = GameObject.Find("Natalia Fernandez").GetComponent<NataliaFernandez>();
+        RobertoBanzas = GameObject.Find("Roberto Banzas").GetComponent<RobertoBanzas>();
+        RocioRodriguez = GameObject.Find("Rocio Rodriguez").GetComponent<RocioRodriguez>();
+        RominaSalgado = GameObject.Find("Romina Salgado").GetComponent<RominaSalgado>();
+        RomualdoTrass = GameObject.Find("Romualdo Trass").GetComponent<RomualdoTrass>();
+        TamaraLaprida = GameObject.Find("Tamara Laprida").GetComponent<TamaraLaprida>();
+
+        Button boton = GetComponent<Button>();
+        if (boton != null)
+        {
+            boton.onClick.AddListener(() =>
+            {
+                Debug.Log("Botón clickeado");
+                PreguntasOjosNegros();
+            });
+        }
 
     }
 
- public void Preguntasojos(string Pregunta1, string Pregunta2, string Pregunta3)
-{
-    //Pregunta1 = "¿Tu personaje tiene el pelo rubio?";
-   if (Condicion != false)
-{   
-    Destroy(TamaraLaprida.gameObject);
-    Destroy(JuanPabloBenavidez.gameObject);
-    Destroy(RocioRodriguez.gameObject);
-    // ... destroy other game objects based on your conditions
-}
-else
-{
+    public void PreguntasOjosNegros()
+    {
+        if (Ojos != pnegros)
+    {   
+            DestroyIfNotNull(TamaraLaprida);
+          
+            DestroyIfNotNull(RocioRodriguez);
+    
+    }
+    else
+    {
    
-    Destroy(BlasZanetti.gameObject);
-    Destroy(NataliaFernandez.gameObject);
-    Destroy(RobertoBanzas.gameObject);
-    Destroy(RominaSalgado.gameObject);
-    Destroy(JuanManuelDelPiero.gameObject);
-    Destroy(LauraRochet.gameObject);
-    Destroy(MiguelAngelRomero.gameObject);
-    Destroy(RomualdoTrass.gameObject);
-    Destroy(ErnestoMuller.gameObject);
-    // ... destroy other game objects based on your conditions
-}
+            DestroyIfNotNull(BlasZanetti);
+            DestroyIfNotNull(NataliaFernandez);
+            DestroyIfNotNull(RobertoBanzas);
+            DestroyIfNotNull(RominaSalgado);
+            DestroyIfNotNull(JuanManuelDelPiero);
+            DestroyIfNotNull(LauraRochet);
+            DestroyIfNotNull(MiguelAngelRomero);
+            DestroyIfNotNull(RomualdoTrass);
+            DestroyIfNotNull(ErnestoMuller);
+    }
+    }
 
-   // Pregunta2 = "¿Tu personaje es pelado?";
-    //Pregunta3 = "¿Tu personaje tiene el pelo gris?";
-}
+     private void DestroyIfNotNull(MonoBehaviour obj)
+    {
+        if (obj != null)
+        {
+            Destroy(obj.gameObject);
+        }
+    }
+
 }
