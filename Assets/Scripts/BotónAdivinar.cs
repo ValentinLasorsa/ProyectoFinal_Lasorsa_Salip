@@ -21,7 +21,6 @@ public class BotónAdivinar : MonoBehaviour
         }
         else
         {
-            Debug.LogError("El canvas no está asignado en el Inspector.");
         }
     }
     
